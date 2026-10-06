@@ -4,12 +4,6 @@ import android.content.Context
 import org.json.JSONArray
 import java.io.File
 
-data class Hero(
-    val index: Int,
-    val baseSkin: Int,
-    val name: String,
-)
-
 data class SkinPack(
     val heroId: Int,
     val skinId: Int,
@@ -20,35 +14,41 @@ data class SkinPack(
 object Catalog {
     private const val NYAF_ROOT = "/data/local/tmp/nyaf"
     private const val SKIN_PACKS = "$NYAF_ROOT/skin-packs"
-    private const val CATALOG_NAME = "catalog_heroes.json"
+    private const val CATALOG = "catalog_heroes.json"
+    private const val HERO_SKINS = "hero_skins.json"
 
-    /** Copy the bundled catalog into filesDir on first run. */
-    fun ensureCatalog(ctx: Context) {
-        val f = File(ctx.filesDir, CATALOG_NAME)
-        if (f.exists() && f.length() > 0) return
-        try {
-            ctx.assets.open(CATALOG_NAME).use { input ->
-                f.outputStream().use { input.copyTo(it) }
-            }
-        } catch (_: Throwable) {
-            // fallback: read from /data/local/tmp if present
-            val src = File("/data/local/tmp/nyaf/$CATALOG_NAME")
-            if (src.exists()) src.copyTo(f, overwrite = true)
+    fun ensureAssets(ctx: Context) {
+        for (name in listOf(CATALOG, HERO_SKINS)) {
+            val f = File(ctx.filesDir, name)
+            if (f.exists() && f.length() > 0) continue
+            try {
+                ctx.assets.open(name).use { input ->
+                    f.outputStream().use { input.copyTo(it) }
+                }
+            } catch (_: Throwable) {}
         }
     }
 
-    fun loadHeroes(ctx: Context): List<Hero> {
-        ensureCatalog(ctx)
-        val f = File(ctx.filesDir, CATALOG_NAME)
+    fun loadHeroSkins(ctx: Context): List<HeroSkin> {
+        ensureAssets(ctx)
+        val f = File(ctx.filesDir, HERO_SKINS)
         if (!f.exists()) return emptyList()
         val arr = JSONArray(f.readText())
-        val out = ArrayList<Hero>(arr.length())
+        val out = ArrayList<HeroSkin>(arr.length())
         for (i in 0 until arr.length()) {
             val o = arr.getJSONObject(i)
-            out.add(Hero(
-                index = o.getInt("index"),
-                baseSkin = o.getInt("base_skin"),
+            val slotsArr = o.optJSONArray("slots")
+            val slots = ArrayList<Int>()
+            if (slotsArr != null) {
+                for (j in 0 until slotsArr.length()) slots.add(slotsArr.getInt(j))
+            }
+            out.add(HeroSkin(
+                heroId = o.getInt("hero_id"),
                 name = o.getString("name"),
+                baseSkin = o.getInt("base_skin"),
+                pinyin = o.optString("pinyin", null),
+                slots = slots,
+                slotCount = o.optInt("slot_count", slots.size),
             ))
         }
         return out
@@ -58,10 +58,10 @@ object Catalog {
         val root = File(SKIN_PACKS)
         if (!root.isDirectory) return emptyList()
         val out = ArrayList<SkinPack>()
-        root.listFiles()?.sortedBy { it.name }?.forEach { heroDir ->
+        root.listFiles()?.forEach { heroDir ->
             if (!heroDir.isDirectory) return@forEach
             val heroId = heroDir.name.toIntOrNull() ?: return@forEach
-            heroDir.listFiles()?.sortedBy { it.name }?.forEach { skinDir ->
+            heroDir.listFiles()?.forEach { skinDir ->
                 if (!skinDir.isDirectory) return@forEach
                 val skinId = skinDir.name.toIntOrNull() ?: return@forEach
                 val verFile = File(skinDir, "pack.version")

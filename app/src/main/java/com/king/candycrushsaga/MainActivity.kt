@@ -18,9 +18,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var rv: RecyclerView
     private lateinit var status: TextView
 
-    private var heroes: List<Hero> = emptyList()
+    private var heroes: List<HeroSkin> = emptyList()
+    private var allPacks: List<SkinPack> = emptyList()
     private var packCounts: MutableMap<Int, Int> = mutableMapOf()
     private var hasRoot = false
+    private lateinit var adapter: HeroAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,45 +60,69 @@ class MainActivity : AppCompatActivity() {
             LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f))
         setContentView(root)
 
-        lifecycleScope.launch { loadHeroes() }
+        lifecycleScope.launch { loadAll() }
     }
 
-    private suspend fun loadHeroes() {
-        val loaded = withContext(Dispatchers.IO) {
-            Catalog.ensureCatalog(this@MainActivity)
-            val hs = Catalog.loadHeroes(this@MainActivity)
-            val packs = Catalog.scanPacks()
-            val counts = packs.groupBy { it.heroId }.mapValues { it.value.size }
-            hs to counts
+    private suspend fun loadAll() {
+        val (hs, packs) = withContext(Dispatchers.IO) {
+            Catalog.ensureAssets(this@MainActivity)
+            val hh = Catalog.loadHeroSkins(this@MainActivity)
+            val pp = Catalog.scanPacks()
+            hh to pp
         }
-        heroes = loaded.first
-        packCounts = loaded.second.toMutableMap()
-        status.text = "${heroes.size} heroes · ${packCounts.values.sum()} packs · " +
+        heroes = hs
+        allPacks = packs
+        packCounts = packs.groupBy { it.heroId }.mapValues { it.value.size }.toMutableMap()
+        status.text = "${heroes.size} heroes · ${packs.size} packs · " +
                 if (hasRoot) "root OK" else "root missing"
-        rv.adapter = HeroAdapter(heroes, packCounts) { showSkinPicker(it) }
+        adapter = HeroAdapter(heroes, packCounts) { showHero(it) }
+        rv.adapter = adapter
     }
 
-    private fun showSkinPicker(hero: Hero) {
-        val packs = Catalog.packsForHero(hero.index)
-        if (packs.isEmpty()) {
-            Toast.makeText(this, "No packs for ${hero.name}", Toast.LENGTH_SHORT).show()
-            return
+    private fun showHero(hero: HeroSkin) {
+        // map slot number -> pack installed in that slot
+        // the pack's internal slot number is the last 2 digits of the skin id
+        // e.g. skin 103111 -> hero 31, slot 10
+        val heroPacks = allPacks.filter { it.heroId == hero.heroId }
+        val packsBySlot = mutableMapOf<Int, SkinPack>()
+        for (p in heroPacks) {
+            val slot = extractSlotNumber(p.skinId)
+            if (slot != null) packsBySlot[slot] = p
         }
         val current = Patcher.currentState()
+        val rows = hero.slots.map { slot ->
+            val pack = packsBySlot[slot]
+            val active = current != null && current.first == hero.heroId && current.second == pack?.skinId
+            SlotRow(slot, pack, active)
+        }
+
         val list = RecyclerView(this).apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
         }
-        list.adapter = SkinAdapter(
-            packs,
-            isActive = { p -> current != null && current.first == p.heroId && current.second == p.skinId },
+        list.adapter = SkinAdapter(rows,
             onApply = { p -> runPatch(p.heroId, p.skinId) },
-            onRevert = { _ -> runRevert() },
-        )
+            onRevert = { p -> runRevert() })
+
         AlertDialog.Builder(this)
-            .setTitle("${hero.name} — skins")
+            .setTitle("${hero.name} — ${hero.slotCount} skins")
             .setView(list)
             .setNegativeButton("Close", null)
             .show()
+    }
+
+    private fun extractSlotNumber(skinId: Int): Int? {
+        // pack skin IDs are either 4-digit legacy (e.g. 1034, 2214)
+        // or 6-digit modern (e.g. 103111 = hero 31, slot 10)
+        // heuristic: modern form ends in 2-digit slot when >= 100000
+        if (skinId >= 100000) {
+            // last 2 digits
+            val s = skinId % 100
+            if (s in 0..20) return s
+            // else try last digit
+            return skinId % 10
+        }
+        // legacy 4-digit form: unclear, try last digit
+        return skinId % 10
     }
 
     private fun runPatch(heroId: Int, skinId: Int) {
@@ -107,6 +133,10 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this@MainActivity,
                 if (r.ok) "Applied" else "Failed", Toast.LENGTH_LONG).show()
             showLog("Patcher output", r.log)
+            // refresh packs
+            allPacks = Catalog.scanPacks()
+            packCounts = allPacks.groupBy { it.heroId }.mapValues { it.value.size }.toMutableMap()
+            adapter.notifyDataSetChanged()
         }
     }
 
@@ -116,6 +146,9 @@ class MainActivity : AppCompatActivity() {
             val r = withContext(Dispatchers.IO) { Patcher.revert() }
             status.text = if (r.ok) "reverted" else "revert failed"
             showLog("Revert output", r.log)
+            allPacks = Catalog.scanPacks()
+            packCounts = allPacks.groupBy { it.heroId }.mapValues { it.value.size }.toMutableMap()
+            adapter.notifyDataSetChanged()
         }
     }
 

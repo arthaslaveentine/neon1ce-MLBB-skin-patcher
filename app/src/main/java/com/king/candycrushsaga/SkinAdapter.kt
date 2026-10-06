@@ -1,6 +1,7 @@
 package com.king.candycrushsaga
 
 import android.graphics.Color
+import android.graphics.Typeface
 import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.Button
@@ -8,16 +9,21 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+data class SlotRow(
+    val slot: Int,
+    val pack: SkinPack?,
+    val isActive: Boolean,
+)
+
 class SkinAdapter(
-    private val packs: List<SkinPack>,
-    private val isActive: (SkinPack) -> Boolean,
+    private val rows: List<SlotRow>,
     private val onApply: (SkinPack) -> Unit,
     private val onRevert: (SkinPack) -> Unit,
 ) : RecyclerView.Adapter<SkinAdapter.VH>() {
 
     class VH(v: LinearLayout) : RecyclerView.ViewHolder(v) {
-        val name: TextView = v.getChildAt(0) as TextView
-        val ver: TextView = (v.getChildAt(1) as LinearLayout).getChildAt(0) as TextView
+        val label: TextView = v.getChildAt(0) as TextView
+        val status: TextView = (v.getChildAt(1) as LinearLayout).getChildAt(0) as TextView
         val btn: Button = (v.getChildAt(1) as LinearLayout).getChildAt(1) as Button
     }
 
@@ -25,50 +31,62 @@ class SkinAdapter(
         val ctx = parent.context
         val row = LinearLayout(ctx).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(24, 24, 24, 24)
+            setPadding(28, 20, 28, 20)
             layoutParams = RecyclerView.LayoutParams(
                 RecyclerView.LayoutParams.MATCH_PARENT,
                 RecyclerView.LayoutParams.WRAP_CONTENT,
             )
         }
-        val name = TextView(ctx).apply {
+        val label = TextView(ctx).apply {
             setTextColor(Color.parseColor("#E8E8F0"))
-            textSize = 16f
+            textSize = 15f
+            typeface = Typeface.DEFAULT_BOLD
         }
-        val subRow = LinearLayout(ctx).apply {
+        val sub = LinearLayout(ctx).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
         }
-        val ver = TextView(ctx).apply {
+        val status = TextView(ctx).apply {
             setTextColor(Color.parseColor("#8A8AA0"))
-            textSize = 13f
+            textSize = 12f
             layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
         }
         val btn = Button(ctx).apply {
-            textSize = 13f
+            textSize = 12f
             minWidth = 0
             minimumWidth = 0
-            setPadding(32, 0, 32, 0)
-            layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-            )
+            setPadding(28, 0, 28, 0)
         }
-        subRow.addView(ver)
-        subRow.addView(btn)
-        row.addView(name)
-        row.addView(subRow)
+        sub.addView(status)
+        sub.addView(btn)
+        row.addView(label)
+        row.addView(sub)
         return VH(row)
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        val p = packs[position]
-        val active = isActive(p)
-        holder.name.text = "Skin ${p.skinId}"
-        holder.ver.text = "${p.version} · ${if (active) "ACTIVE" else "idle"}"
-        holder.btn.text = if (active) "Revert" else "Apply"
-        holder.btn.setOnClickListener { if (active) onRevert(p) else onApply(p) }
+        val r = rows[position]
+        holder.label.text = if (r.slot == 0) "Skin 00 — base" else "Skin %02d".format(r.slot)
+        if (r.pack == null) {
+            holder.status.text = "not installed"
+            holder.status.setTextColor(0xFF5A5A70.toInt())
+            holder.btn.visibility = Button.GONE
+        } else {
+            if (r.isActive) {
+                holder.status.text = "ACTIVE · ${r.pack.version}"
+                holder.status.setTextColor(0xFF00E5FF.toInt())
+                holder.btn.text = "Revert"
+                holder.btn.visibility = Button.VISIBLE
+                holder.btn.setOnClickListener { onRevert(r.pack) }
+            } else {
+                holder.status.text = "installed · ${r.pack.version}"
+                holder.status.setTextColor(0xFFFF2E88.toInt())
+                holder.btn.text = "Apply"
+                holder.btn.visibility = Button.VISIBLE
+                holder.btn.setOnClickListener { onApply(r.pack) }
+            }
+        }
     }
 
-    override fun getItemCount() = packs.size
+    override fun getItemCount() = rows.size
 }

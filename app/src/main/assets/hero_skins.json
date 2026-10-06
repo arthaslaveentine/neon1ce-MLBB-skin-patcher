@@ -1,0 +1,2487 @@
+[
+  {
+    "hero_id": 1,
+    "name": "Miya",
+    "base_skin": 1011,
+    "pinyin": "gongjianshou",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "slot_count": 16
+  },
+  {
+    "hero_id": 2,
+    "name": "Balmond",
+    "base_skin": 1021,
+    "pinyin": "fuwang",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 3,
+    "name": "Saber",
+    "base_skin": 1031,
+    "pinyin": "shikongjianhao",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 4,
+    "name": "Alice",
+    "base_skin": 1041,
+    "pinyin": "alice",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 5,
+    "name": "Nana",
+    "base_skin": 1051,
+    "pinyin": "nana",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "slot_count": 12
+  },
+  {
+    "hero_id": 6,
+    "name": "Tigreal",
+    "base_skin": 1061,
+    "pinyin": "snow",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 7,
+    "name": "Alucard",
+    "base_skin": 1071,
+    "pinyin": "alucard",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "slot_count": 12
+  },
+  {
+    "hero_id": 8,
+    "name": "Karina",
+    "base_skin": 1081,
+    "pinyin": "pofa",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "slot_count": 12
+  },
+  {
+    "hero_id": 9,
+    "name": "Akai",
+    "base_skin": 1091,
+    "pinyin": "xiongmao",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 10,
+    "name": "Franco",
+    "base_skin": 1101,
+    "pinyin": "franco",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "slot_count": 12
+  },
+  {
+    "hero_id": 11,
+    "name": "Bane",
+    "base_skin": 1111,
+    "pinyin": "bane",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 12,
+    "name": "Bruno",
+    "base_skin": 1121,
+    "pinyin": "qiuyuan",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 13,
+    "name": "Clint",
+    "base_skin": 1131,
+    "pinyin": "cowboy",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "slot_count": 13
+  },
+  {
+    "hero_id": 14,
+    "name": "Rafaela",
+    "base_skin": 1141,
+    "pinyin": "angel",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "slot_count": 10
+  },
+  {
+    "hero_id": 15,
+    "name": "Eudora",
+    "base_skin": 1151,
+    "pinyin": "eudora",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 16,
+    "name": "Zilong",
+    "base_skin": 1161,
+    "pinyin": "zhaoyun",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "slot_count": 14
+  },
+  {
+    "hero_id": 17,
+    "name": "Fanny",
+    "base_skin": 1171,
+    "pinyin": "fanny",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "slot_count": 14
+  },
+  {
+    "hero_id": 18,
+    "name": "Layla",
+    "base_skin": 1181,
+    "pinyin": "shooter",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "slot_count": 13
+  },
+  {
+    "hero_id": 19,
+    "name": "Minotaur",
+    "base_skin": 1191,
+    "pinyin": "minotaur",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 20,
+    "name": "Lolita",
+    "base_skin": 1201,
+    "pinyin": "nextlolita",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 21,
+    "name": "Hayabusa",
+    "base_skin": 1211,
+    "pinyin": "ninja",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "slot_count": 12
+  },
+  {
+    "hero_id": 22,
+    "name": "Freya",
+    "base_skin": 1221,
+    "pinyin": "freya",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "slot_count": 14
+  },
+  {
+    "hero_id": 23,
+    "name": "Gord",
+    "base_skin": 1231,
+    "pinyin": "mage",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 24,
+    "name": "Natalia",
+    "base_skin": 1241,
+    "pinyin": "assassin",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 25,
+    "name": "Kagura",
+    "base_skin": 1251,
+    "pinyin": "kagura",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "slot_count": 12
+  },
+  {
+    "hero_id": 26,
+    "name": "Chou",
+    "base_skin": 1261,
+    "pinyin": "kongfu",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "slot_count": 15
+  },
+  {
+    "hero_id": 27,
+    "name": "Sun",
+    "base_skin": 1271,
+    "pinyin": "wukong",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "slot_count": 10
+  },
+  {
+    "hero_id": 28,
+    "name": "Alpha",
+    "base_skin": 1281,
+    "pinyin": "warrior",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 29,
+    "name": "Ruby",
+    "base_skin": 1291,
+    "pinyin": "xiaohongmao",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "slot_count": 12
+  },
+  {
+    "hero_id": 30,
+    "name": "Yi Sun-shin",
+    "base_skin": 1301,
+    "pinyin": "lee",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 31,
+    "name": "Moskov",
+    "base_skin": 1311,
+    "pinyin": "moskov",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "slot_count": 13
+  },
+  {
+    "hero_id": 32,
+    "name": "Johnson",
+    "base_skin": 1321,
+    "pinyin": "johnson",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "slot_count": 10
+  },
+  {
+    "hero_id": 33,
+    "name": "Cyclops",
+    "base_skin": 1331,
+    "pinyin": "xinghunfashi",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "slot_count": 10
+  },
+  {
+    "hero_id": 34,
+    "name": "Estes",
+    "base_skin": 1341,
+    "pinyin": "gregory",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "slot_count": 10
+  },
+  {
+    "hero_id": 35,
+    "name": "Hilda",
+    "base_skin": 1351,
+    "pinyin": "hilda",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 36,
+    "name": "Aurora",
+    "base_skin": 1361,
+    "pinyin": "aurora",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 37,
+    "name": "Lapu-Lapu",
+    "base_skin": 1371,
+    "pinyin": "lapulapu",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 38,
+    "name": "Vexana",
+    "base_skin": 1381,
+    "pinyin": "vexana",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 39,
+    "name": "Roger",
+    "base_skin": 1391,
+    "pinyin": "werewolf",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 40,
+    "name": "Karrie",
+    "base_skin": 1401,
+    "pinyin": "feilun",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "slot_count": 12
+  },
+  {
+    "hero_id": 41,
+    "name": "Gatotkaca",
+    "base_skin": 1411,
+    "pinyin": "gatot",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 42,
+    "name": "Harley",
+    "base_skin": 1421,
+    "pinyin": "moshushi",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 43,
+    "name": "Irithel",
+    "base_skin": 1431,
+    "pinyin": "rider",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "slot_count": 10
+  },
+  {
+    "hero_id": 44,
+    "name": "Grock",
+    "base_skin": 1441,
+    "pinyin": "greckon",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 45,
+    "name": "Argus",
+    "base_skin": 1451,
+    "pinyin": "argus",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 46,
+    "name": "Odette",
+    "base_skin": 1461,
+    "pinyin": "odette",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "slot_count": 10
+  },
+  {
+    "hero_id": 47,
+    "name": "Lancelot",
+    "base_skin": 1471,
+    "pinyin": "lancelot",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "slot_count": 14
+  },
+  {
+    "hero_id": 48,
+    "name": "Diggie",
+    "base_skin": 1481,
+    "pinyin": "digger",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 49,
+    "name": "Hylos",
+    "base_skin": 1491,
+    "pinyin": "hylos",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 50,
+    "name": "Zhask",
+    "base_skin": 1501,
+    "pinyin": "zhask",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 51,
+    "name": "Helcurt",
+    "base_skin": 1511,
+    "pinyin": "sdhunter",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 52,
+    "name": "Pharsa",
+    "base_skin": 1521,
+    "pinyin": "fasha",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "slot_count": 12
+  },
+  {
+    "hero_id": 53,
+    "name": "Lesley",
+    "base_skin": 1531,
+    "pinyin": "sniper",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "slot_count": 14
+  },
+  {
+    "hero_id": 54,
+    "name": "Jawhead",
+    "base_skin": 1541,
+    "pinyin": "mechwarrior",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 55,
+    "name": "Angela",
+    "base_skin": 1551,
+    "pinyin": "angela",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "slot_count": 12
+  },
+  {
+    "hero_id": 56,
+    "name": "Gusion",
+    "base_skin": 1561,
+    "pinyin": "gusin",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "slot_count": 14
+  },
+  {
+    "hero_id": 57,
+    "name": "Valir",
+    "base_skin": 1571,
+    "pinyin": "newfiremagic",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "slot_count": 13
+  },
+  {
+    "hero_id": 58,
+    "name": "Martis",
+    "base_skin": 1581,
+    "pinyin": "asura",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 59,
+    "name": "Uranus",
+    "base_skin": 1591,
+    "pinyin": "fashutanke",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 60,
+    "name": "Hanabi",
+    "base_skin": 1601,
+    "pinyin": "nextninjagirl",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "slot_count": 13
+  },
+  {
+    "hero_id": 61,
+    "name": "Chang'e",
+    "base_skin": 1611,
+    "pinyin": "change",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "slot_count": 12
+  },
+  {
+    "hero_id": 62,
+    "name": "Kaja",
+    "base_skin": 1621,
+    "pinyin": "birdman",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 63,
+    "name": "Selena",
+    "base_skin": 1631,
+    "pinyin": "selena",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "slot_count": 12
+  },
+  {
+    "hero_id": 64,
+    "name": "Aldous",
+    "base_skin": 1641,
+    "pinyin": "jubi",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 65,
+    "name": "Claude",
+    "base_skin": 1651,
+    "pinyin": "claude",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "slot_count": 13
+  },
+  {
+    "hero_id": 66,
+    "name": "Vale",
+    "base_skin": 1661,
+    "pinyin": "windmagic",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "slot_count": 10
+  },
+  {
+    "hero_id": 67,
+    "name": "Leomord",
+    "base_skin": 1671,
+    "pinyin": "leomord",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 68,
+    "name": "Lunox",
+    "base_skin": 1681,
+    "pinyin": "balancemagic",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "slot_count": 12
+  },
+  {
+    "hero_id": 69,
+    "name": "Hanzo",
+    "base_skin": 1691,
+    "pinyin": "badninja",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "slot_count": 6
+  },
+  {
+    "hero_id": 70,
+    "name": "Belerick",
+    "base_skin": 1701,
+    "pinyin": "newshuren",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 71,
+    "name": "Kimmy",
+    "base_skin": 1711,
+    "pinyin": "jimmy",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 72,
+    "name": "Thamuz",
+    "base_skin": 1721,
+    "pinyin": "thalmuz",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 73,
+    "name": "Harith",
+    "base_skin": 1731,
+    "pinyin": "lanbote",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 74,
+    "name": "Minsitthar",
+    "base_skin": 1741,
+    "pinyin": "kyanzittha",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 75,
+    "name": "Kadita",
+    "base_skin": 1751,
+    "pinyin": "kadita",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 76,
+    "name": "Faramis",
+    "base_skin": 1761,
+    "pinyin": "alchemist",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 77,
+    "name": "Badang",
+    "base_skin": 1771,
+    "pinyin": "badang",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 78,
+    "name": "Khufra",
+    "base_skin": 1781,
+    "pinyin": "munaiyi",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 79,
+    "name": "Granger",
+    "base_skin": 1791,
+    "pinyin": "mike",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "slot_count": 14
+  },
+  {
+    "hero_id": 80,
+    "name": "Guinevere",
+    "base_skin": 1801,
+    "pinyin": "guinevere",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "slot_count": 13
+  },
+  {
+    "hero_id": 81,
+    "name": "Esmeralda",
+    "base_skin": 1811,
+    "pinyin": "esmeralda",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 82,
+    "name": "Terizla",
+    "base_skin": 1821,
+    "pinyin": "terizla",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 83,
+    "name": "X.Borg",
+    "base_skin": 1831,
+    "pinyin": "fireman",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 84,
+    "name": "Ling",
+    "base_skin": 1841,
+    "pinyin": "zeo",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "slot_count": 13
+  },
+  {
+    "hero_id": 85,
+    "name": "Dyrroth",
+    "base_skin": 1851,
+    "pinyin": "diyasi",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "slot_count": 10
+  },
+  {
+    "hero_id": 86,
+    "name": "Lylia",
+    "base_skin": 1861,
+    "pinyin": "baozhafashi",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 87,
+    "name": "Baxia",
+    "base_skin": 1871,
+    "pinyin": "xuanwu",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 88,
+    "name": "Masha",
+    "base_skin": 1881,
+    "pinyin": "xiongnv",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 89,
+    "name": "Wanwan",
+    "base_skin": 1891,
+    "pinyin": "wanwan",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 90,
+    "name": "Silvanna",
+    "base_skin": 1901,
+    "pinyin": "nvqishi",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "slot_count": 10
+  },
+  {
+    "hero_id": 91,
+    "name": "Cecilion",
+    "base_skin": 1911,
+    "pinyin": "couplemage",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 92,
+    "name": "Carmilla",
+    "base_skin": 1921,
+    "pinyin": "kamila",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "slot_count": 5
+  },
+  {
+    "hero_id": 93,
+    "name": "Atlas",
+    "base_skin": 1931,
+    "pinyin": "atelasi",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 94,
+    "name": "Popol and Kupa",
+    "base_skin": 1941,
+    "pinyin": "bbsheshou",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 95,
+    "name": "Yu Zhong",
+    "base_skin": 1951,
+    "pinyin": "blackdragon",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 96,
+    "name": "Luo Yi",
+    "base_skin": 1961,
+    "pinyin": "magneticmage",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 97,
+    "name": "Benedetta",
+    "base_skin": 1971,
+    "pinyin": "beilanita",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "slot_count": 10
+  },
+  {
+    "hero_id": 98,
+    "name": "Khaleed",
+    "base_skin": 1981,
+    "pinyin": "desertwarrior",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "slot_count": 6
+  },
+  {
+    "hero_id": 99,
+    "name": "Barats",
+    "base_skin": 1991,
+    "pinyin": "longxi",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "slot_count": 6
+  },
+  {
+    "hero_id": 100,
+    "name": "Brody",
+    "base_skin": 2001,
+    "pinyin": "chargingshooter",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 101,
+    "name": "Yve",
+    "base_skin": 2011,
+    "pinyin": "huatufashi",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "slot_count": 5
+  },
+  {
+    "hero_id": 102,
+    "name": "Mathilda",
+    "base_skin": 2021,
+    "pinyin": "madierda",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "slot_count": 6
+  },
+  {
+    "hero_id": 103,
+    "name": "Paquito",
+    "base_skin": 2031,
+    "pinyin": "pakuite",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "slot_count": 11
+  },
+  {
+    "hero_id": 104,
+    "name": "Gloo",
+    "base_skin": 2041,
+    "pinyin": "gloo",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "slot_count": 5
+  },
+  {
+    "hero_id": 105,
+    "name": "Beatrix",
+    "base_skin": 2051,
+    "pinyin": "budika",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "slot_count": 10
+  },
+  {
+    "hero_id": 106,
+    "name": "Phoveus",
+    "base_skin": 2061,
+    "pinyin": "phoveus",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "slot_count": 5
+  },
+  {
+    "hero_id": 107,
+    "name": "Natan",
+    "base_skin": 2071,
+    "pinyin": "entropy",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 9
+  },
+  {
+    "hero_id": 108,
+    "name": "Aulus",
+    "base_skin": 2081,
+    "pinyin": "aulus",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 109,
+    "name": "Aamon",
+    "base_skin": 2091,
+    "pinyin": "aamon",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 110,
+    "name": "Valentina",
+    "base_skin": 2101,
+    "pinyin": "walundina",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 111,
+    "name": "Edith",
+    "base_skin": 2111,
+    "pinyin": "idun",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 112,
+    "name": "Floryn",
+    "base_skin": 2121,
+    "pinyin": "chloe",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 113,
+    "name": "Yin",
+    "base_skin": 2131,
+    "pinyin": "yin",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 114,
+    "name": "Melissa",
+    "base_skin": 2141,
+    "pinyin": "melissa",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 115,
+    "name": "Xavier",
+    "base_skin": 2151,
+    "pinyin": "xavier",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 116,
+    "name": "Julian",
+    "base_skin": 2161,
+    "pinyin": "julian",
+    "slots": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "slot_count": 8
+  },
+  {
+    "hero_id": 117,
+    "name": "Fredrinn",
+    "base_skin": 2171,
+    "pinyin": "feiden",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 118,
+    "name": "Joy",
+    "base_skin": 2181,
+    "pinyin": "joy",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      7
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 119,
+    "name": "Novaria",
+    "base_skin": 2191,
+    "pinyin": "jufa",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "slot_count": 6
+  },
+  {
+    "hero_id": 120,
+    "name": "Arlott",
+    "base_skin": 2201,
+    "pinyin": "arlott",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "slot_count": 5
+  },
+  {
+    "hero_id": 121,
+    "name": "Ixia",
+    "base_skin": 2211,
+    "pinyin": "ixia",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "slot_count": 5
+  },
+  {
+    "hero_id": 122,
+    "name": "Nolan",
+    "base_skin": 2221,
+    "pinyin": "nolanosborne",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "slot_count": 6
+  },
+  {
+    "hero_id": 123,
+    "name": "Cici",
+    "base_skin": 2231,
+    "pinyin": "cici",
+    "slots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "slot_count": 4
+  },
+  {
+    "hero_id": 124,
+    "name": "Chip",
+    "base_skin": 2241,
+    "pinyin": "chip",
+    "slots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "slot_count": 4
+  },
+  {
+    "hero_id": 125,
+    "name": "Zhuxin",
+    "base_skin": 2251,
+    "pinyin": "zhuxin",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "slot_count": 7
+  },
+  {
+    "hero_id": 126,
+    "name": "Suyou",
+    "base_skin": 2261,
+    "pinyin": "kaijiacike",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "slot_count": 5
+  },
+  {
+    "hero_id": 127,
+    "name": "Lukas",
+    "base_skin": 2271,
+    "pinyin": "lukas",
+    "slots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "slot_count": 4
+  },
+  {
+    "hero_id": 128,
+    "name": "Kalea",
+    "base_skin": 2281,
+    "pinyin": "baolishaonv",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "slot_count": 5
+  },
+  {
+    "hero_id": 129,
+    "name": "Zetian",
+    "base_skin": 2291,
+    "pinyin": "wuzetian",
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "slot_count": 5
+  },
+  {
+    "hero_id": 130,
+    "name": "Obsidia",
+    "base_skin": 2301,
+    "pinyin": "obsidia",
+    "slots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "slot_count": 4
+  },
+  {
+    "hero_id": 131,
+    "name": "Sora",
+    "base_skin": 2311,
+    "pinyin": "cirrus",
+    "slots": [
+      0,
+      1,
+      2
+    ],
+    "slot_count": 3
+  },
+  {
+    "hero_id": 132,
+    "name": "Marcel",
+    "base_skin": 2321,
+    "pinyin": "marcel",
+    "slots": [
+      0,
+      1,
+      2
+    ],
+    "slot_count": 3
+  },
+  {
+    "hero_id": 133,
+    "name": "Hirara",
+    "base_skin": 2331,
+    "pinyin": "hirara",
+    "slots": [
+      0,
+      1
+    ],
+    "slot_count": 2
+  },
+  {
+    "hero_id": 134,
+    "name": "Dori",
+    "base_skin": 2341,
+    "pinyin": "dori",
+    "slots": [
+      0,
+      1
+    ],
+    "slot_count": 2
+  },
+  {
+    "hero_id": 294,
+    "name": "Classic Zilong",
+    "base_skin": 3941,
+    "pinyin": null,
+    "slots": [
+      0
+    ],
+    "slot_count": 1
+  },
+  {
+    "hero_id": 295,
+    "name": "Classic Yi Sun-shin",
+    "base_skin": 3951,
+    "pinyin": null,
+    "slots": [
+      0
+    ],
+    "slot_count": 1
+  },
+  {
+    "hero_id": 296,
+    "name": "Classic Vexana",
+    "base_skin": 3961,
+    "pinyin": null,
+    "slots": [
+      0
+    ],
+    "slot_count": 1
+  },
+  {
+    "hero_id": 297,
+    "name": "Classic Akai",
+    "base_skin": 3971,
+    "pinyin": null,
+    "slots": [
+      0
+    ],
+    "slot_count": 1
+  },
+  {
+    "hero_id": 298,
+    "name": "Classic Chou",
+    "base_skin": 3981,
+    "pinyin": null,
+    "slots": [
+      0
+    ],
+    "slot_count": 1
+  }
+]

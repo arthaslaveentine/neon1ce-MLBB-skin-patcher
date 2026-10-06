@@ -7,9 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class HeroAdapter(
-    private val heroes: List<Hero>,
+    private val heroes: List<HeroSkin>,
     private val packCounts: Map<Int, Int>,
-    private val onClick: (Hero) -> Unit,
+    private val onClick: (HeroSkin) -> Unit,
 ) : RecyclerView.Adapter<HeroAdapter.VH>() {
 
     class VH(v: LinearLayout) : RecyclerView.ViewHolder(v) {
@@ -21,7 +21,7 @@ class HeroAdapter(
         val ctx = parent.context
         val row = LinearLayout(ctx).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(32, 32, 32, 32)
+            setPadding(32, 28, 32, 28)
             layoutParams = RecyclerView.LayoutParams(
                 RecyclerView.LayoutParams.MATCH_PARENT,
                 RecyclerView.LayoutParams.WRAP_CONTENT,
@@ -43,8 +43,11 @@ class HeroAdapter(
     override fun onBindViewHolder(holder: VH, position: Int) {
         val h = heroes[position]
         holder.name.text = h.name
-        val c = packCounts[h.index] ?: 0
-        holder.sub.text = "base skin ${h.baseSkin} · $c pack" + (if (c == 1) "" else "s")
+        val installed = packCounts[h.heroId] ?: 0
+        val total = h.slotCount
+        val installedStr = if (installed > 0) "$installed installed" else "none installed"
+        holder.sub.text = "$total skins · $installedStr"
+        holder.sub.setTextColor(if (installed > 0) 0xFF00E5FF.toInt() else 0xFF8A8AA0.toInt())
         holder.itemView.setOnClickListener { onClick(h) }
     }
 
