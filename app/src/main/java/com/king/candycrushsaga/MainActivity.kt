@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,28 +30,32 @@ class MainActivity : AppCompatActivity() {
         val root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setBackgroundColor(0xFF0A0A0F.toInt())
-            setPadding(24, 48, 24, 24)
+            setPadding(0, 48, 0, 0)
         }
 
         val title = TextView(this).apply {
             text = "Иeon1ce"
-            textSize = 32f
+            textSize = 30f
             setTextColor(0xFF00E5FF.toInt())
+            setPadding(24, 0, 24, 0)
         }
         val subtitle = TextView(this).apply {
             text = "MLBB Skin Patcher"
-            textSize = 13f
-            setTextColor(0xFF8A8AA0.toInt())
-        }
-        status = TextView(this).apply {
-            text = if (hasRoot) "root OK — loading catalog..." else "root missing"
             textSize = 12f
             setTextColor(0xFF8A8AA0.toInt())
-            setPadding(0, 8, 0, 16)
+            setPadding(24, 2, 24, 0)
+        }
+        status = TextView(this).apply {
+            text = if (hasRoot) "root OK — loading..." else "root missing"
+            textSize = 11f
+            setTextColor(0xFF8A8AA0.toInt())
+            setPadding(24, 6, 24, 12)
         }
 
         rv = RecyclerView(this).apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
+            layoutManager = GridLayoutManager(this@MainActivity, 3)
+            setPadding(8, 0, 8, 24)
+            clipToPadding = false
         }
         root.addView(title)
         root.addView(subtitle)
@@ -77,11 +81,7 @@ class MainActivity : AppCompatActivity() {
         status.text = "${heroes.size} heroes · ${packCounts.values.sum()} packs · " +
                 if (hasRoot) "root OK" else "root missing"
 
-        if (heroes.isEmpty()) {
-            status.text = "no catalog found in assets/catalog_heroes.json"
-        }
-
-        rv.adapter = HeroAdapter(heroes, packCounts) { hero ->
+        rv.adapter = HeroAdapter(this, heroes, packCounts) { hero ->
             showSkinPicker(hero)
         }
     }
@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         val current = Patcher.currentState()
 
         val list = RecyclerView(this).apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
+            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@MainActivity)
         }
         val adapter = SkinAdapter(
             packs,
