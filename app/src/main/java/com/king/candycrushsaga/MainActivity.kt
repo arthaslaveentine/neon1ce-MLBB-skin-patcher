@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,39 +30,32 @@ class MainActivity : AppCompatActivity() {
         val root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setBackgroundColor(0xFF0A0A0F.toInt())
-            setPadding(0, 48, 0, 0)
+            setPadding(24, 48, 24, 24)
         }
-
         val title = TextView(this).apply {
             text = "Иeon1ce"
             textSize = 30f
             setTextColor(0xFF00E5FF.toInt())
-            setPadding(24, 0, 24, 0)
         }
         val subtitle = TextView(this).apply {
             text = "MLBB Skin Patcher"
             textSize = 12f
             setTextColor(0xFF8A8AA0.toInt())
-            setPadding(24, 2, 24, 0)
         }
         status = TextView(this).apply {
             text = if (hasRoot) "root OK — loading..." else "root missing"
             textSize = 11f
             setTextColor(0xFF8A8AA0.toInt())
-            setPadding(24, 6, 24, 12)
+            setPadding(0, 6, 0, 12)
         }
-
         rv = RecyclerView(this).apply {
-            layoutManager = GridLayoutManager(this@MainActivity, 3)
-            setPadding(8, 0, 8, 24)
-            clipToPadding = false
+            layoutManager = LinearLayoutManager(this@MainActivity)
         }
         root.addView(title)
         root.addView(subtitle)
         root.addView(status)
         root.addView(rv, LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f))
-
         setContentView(root)
 
         lifecycleScope.launch { loadHeroes() }
@@ -80,10 +73,7 @@ class MainActivity : AppCompatActivity() {
         packCounts = loaded.second.toMutableMap()
         status.text = "${heroes.size} heroes · ${packCounts.values.sum()} packs · " +
                 if (hasRoot) "root OK" else "root missing"
-
-        rv.adapter = HeroAdapter(this, heroes, packCounts) { hero ->
-            showSkinPicker(hero)
-        }
+        rv.adapter = HeroAdapter(heroes, packCounts) { showSkinPicker(it) }
     }
 
     private fun showSkinPicker(hero: Hero) {
@@ -93,18 +83,15 @@ class MainActivity : AppCompatActivity() {
             return
         }
         val current = Patcher.currentState()
-
         val list = RecyclerView(this).apply {
-            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@MainActivity)
+            layoutManager = LinearLayoutManager(this@MainActivity)
         }
-        val adapter = SkinAdapter(
+        list.adapter = SkinAdapter(
             packs,
             isActive = { p -> current != null && current.first == p.heroId && current.second == p.skinId },
             onApply = { p -> runPatch(p.heroId, p.skinId) },
             onRevert = { _ -> runRevert() },
         )
-        list.adapter = adapter
-
         AlertDialog.Builder(this)
             .setTitle("${hero.name} — skins")
             .setView(list)
@@ -118,8 +105,8 @@ class MainActivity : AppCompatActivity() {
             val r = withContext(Dispatchers.IO) { Patcher.apply(heroId, skinId) }
             status.text = if (r.ok) "applied $heroId/$skinId" else "apply failed"
             Toast.makeText(this@MainActivity,
-                if (r.ok) "Applied" else "Failed — see log", Toast.LENGTH_LONG).show()
-            showLogDialog("Patcher output", r.log)
+                if (r.ok) "Applied" else "Failed", Toast.LENGTH_LONG).show()
+            showLog("Patcher output", r.log)
         }
     }
 
@@ -128,15 +115,12 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             val r = withContext(Dispatchers.IO) { Patcher.revert() }
             status.text = if (r.ok) "reverted" else "revert failed"
-            showLogDialog("Revert output", r.log)
+            showLog("Revert output", r.log)
         }
     }
 
-    private fun showLogDialog(title: String, body: String) {
-        AlertDialog.Builder(this)
-            .setTitle(title)
-            .setMessage(body)
-            .setPositiveButton("OK", null)
-            .show()
+    private fun showLog(t: String, b: String) {
+        AlertDialog.Builder(this).setTitle(t).setMessage(b)
+            .setPositiveButton("OK", null).show()
     }
 }
