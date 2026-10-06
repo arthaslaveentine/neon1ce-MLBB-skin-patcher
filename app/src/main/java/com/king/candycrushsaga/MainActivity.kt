@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         val (hs, packs) = withContext(Dispatchers.IO) {
             Catalog.ensureAssets(this@MainActivity)
             val hh = Catalog.loadHeroSkins(this@MainActivity)
-            val pp = Catalog.scanPacks()
+            val pp = Catalog.scanPacks().filter { it.hasFiles }
             hh to pp
         }
         heroes = hs
@@ -80,28 +80,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showHero(hero: HeroSkin) {
-        // map slot number -> pack installed in that slot
-        // the pack's internal slot number is the last 2 digits of the skin id
-        // e.g. skin 103111 -> hero 31, slot 10
         val heroPacks = allPacks.filter { it.heroId == hero.heroId }
         val packsBySlot = mutableMapOf<Int, SkinPack>()
         for (p in heroPacks) {
-            val slot = extractSlotNumber(p.skinId)
-            if (slot != null) packsBySlot[slot] = p
+            val slot = extractSlotNumber(p.skinId) ?: continue
+            packsBySlot[slot] = p
         }
         val current = Patcher.currentState()
         val rows = hero.slots.map { slot ->
             val pack = packsBySlot[slot]
             val active = current != null && current.first == hero.heroId && current.second == pack?.skinId
-            SlotRow(slot, pack, active)
+            SlotRow(slot, pack, active, inferSkinName(pack))
         }
 
         val list = RecyclerView(this).apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
         }
         list.adapter = SkinAdapter(rows,
-            onApply = { p -> runPatch(p.heroId, p.skinId) },
-            onRevert = { p -> runRevert() })
+            onInject = { p -> runPatch(p.heroId, p.skinId) },
+            onRemove = { p -> runRevert() })
 
         AlertDialog.Builder(this)
             .setTitle("${hero.name} — ${hero.slotCount} skins")
@@ -111,44 +108,48 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun extractSlotNumber(skinId: Int): Int? {
-        // pack skin IDs are either 4-digit legacy (e.g. 1034, 2214)
-        // or 6-digit modern (e.g. 103111 = hero 31, slot 10)
-        // heuristic: modern form ends in 2-digit slot when >= 100000
         if (skinId >= 100000) {
-            // last 2 digits
             val s = skinId % 100
-            if (s in 0..20) return s
-            // else try last digit
+            if (s in 0..30) return s
             return skinId % 10
         }
-        // legacy 4-digit form: unclear, try last digit
         return skinId % 10
     }
 
+    /** Extract a display name from the pack's manifest filenames. */
+    private fun inferSkinName(pack: SkinPack?): String? {
+        if (pack == null) return null
+        for (line in pack.manifest) {
+            val fname = line.substringAfterLast('/').substringBeforeLast(".unity3d")
+            // pattern: hero_<pinyin>_<namevariant>_skin*_add
+            val m = Regex("hero_([a-z]+)_([a-z0-9]+)").find(fname)
+            if (m != null) {
+                val variant = m.groupValues[2]
+                if (variant != "skin" && variant.length > 2 && !variant.all { it.isDigit() }) {
+                    return variant.replaceFirstChar { it.uppercase() }
+                }
+            }
+        }
+        return null
+    }
+
     private fun runPatch(heroId: Int, skinId: Int) {
-        status.text = "applying $heroId/$skinId..."
+        status.text = "injecting $heroId/$skinId..."
         lifecycleScope.launch {
             val r = withContext(Dispatchers.IO) { Patcher.apply(heroId, skinId) }
-            status.text = if (r.ok) "applied $heroId/$skinId" else "apply failed"
+            status.text = if (r.ok) "injected $heroId/$skinId" else "inject failed"
             Toast.makeText(this@MainActivity,
-                if (r.ok) "Applied" else "Failed", Toast.LENGTH_LONG).show()
-            showLog("Patcher output", r.log)
-            // refresh packs
-            allPacks = Catalog.scanPacks()
-            packCounts = allPacks.groupBy { it.heroId }.mapValues { it.value.size }.toMutableMap()
-            adapter.notifyDataSetChanged()
+                if (r.ok) "Injected" else "Failed", Toast.LENGTH_LONG).show()
+            showLog("Inject log", r.log)
         }
     }
 
     private fun runRevert() {
-        status.text = "reverting..."
+        status.text = "removing..."
         lifecycleScope.launch {
             val r = withContext(Dispatchers.IO) { Patcher.revert() }
-            status.text = if (r.ok) "reverted" else "revert failed"
-            showLog("Revert output", r.log)
-            allPacks = Catalog.scanPacks()
-            packCounts = allPacks.groupBy { it.heroId }.mapValues { it.value.size }.toMutableMap()
-            adapter.notifyDataSetChanged()
+            status.text = if (r.ok) "removed" else "remove failed"
+            showLog("Remove log", r.log)
         }
     }
 

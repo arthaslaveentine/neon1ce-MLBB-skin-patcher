@@ -9,6 +9,8 @@ data class SkinPack(
     val skinId: Int,
     val version: String,
     val dir: File,
+    val manifest: List<String>,
+    val hasFiles: Boolean,
 )
 
 object Catalog {
@@ -66,12 +68,18 @@ object Catalog {
                 val skinId = skinDir.name.toIntOrNull() ?: return@forEach
                 val verFile = File(skinDir, "pack.version")
                 val ver = if (verFile.exists()) verFile.readText().trim() else "?"
-                out.add(SkinPack(heroId, skinId, ver, skinDir))
+                val manifestFile = File(skinDir, "manifest.txt")
+                val manifest = if (manifestFile.exists()) manifestFile.readText().lines().filter { it.isNotBlank() } else emptyList()
+                val filesDir = File(skinDir, "files")
+                val hasFiles = filesDir.isDirectory && (filesDir.listFiles()?.isNotEmpty() == true)
+                out.add(SkinPack(heroId, skinId, ver, skinDir, manifest, hasFiles))
             }
         }
         return out
     }
 
     fun packsForHero(heroId: Int): List<SkinPack> =
-        scanPacks().filter { it.heroId == heroId }
+        scanPacks().filter { it.heroId == heroId && it.hasFiles }
+
+    fun validPackCount(packs: List<SkinPack>): Int = packs.count { it.hasFiles }
 }
