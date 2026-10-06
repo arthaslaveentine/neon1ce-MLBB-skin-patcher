@@ -26,14 +26,18 @@ object Patcher {
     }
 
     fun currentState(): Pair<Int, Int>? {
-        val f = File("/data/local/tmp/nyaf/skin-patcher.state")
-        if (!f.exists()) return null
-        val lines = f.readText().trim().lines()
-        if (lines.size < 2) return null
-        val parts = lines[1].split(" ")
-        if (parts.size < 2) return null
-        val h = parts[0].toIntOrNull() ?: return null
-        val s = parts[1].toIntOrNull() ?: return null
-        return h to s
+        return try {
+            val f = File("/data/local/tmp/nyaf/skin-patcher.state")
+            if (!f.exists() || !f.canRead()) return null
+            val lines = f.readText().trim().lines()
+            if (lines.size < 2) return null
+            val parts = lines[1].split(" ")
+            if (parts.size < 2) return null
+            val h = parts[0].toIntOrNull() ?: return null
+            val s = parts[1].toIntOrNull() ?: return null
+            h to s
+        } catch (t: Throwable) {
+            null
+        }
     }
 }
