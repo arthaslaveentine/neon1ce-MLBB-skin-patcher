@@ -3,14 +3,20 @@ package com.king.candycrushsaga
 import java.io.File
 
 object Patcher {
-    private const val SCRIPT = "/data/data/com.termux/files/home/nyaf/nyaf_skin_patcher.py"
+    private const val TERMUX_BASH = "/data/data/com.termux/files/usr/bin/bash"
     private const val PYTHON = "/data/data/com.termux/files/usr/bin/python3"
+    private const val SCRIPT = "/data/data/com.termux/files/home/nyaf/nyaf_skin_patcher.py"
 
     data class ApplyResult(val ok: Boolean, val log: String)
 
+    private fun runTermux(args: List<String>): RootShell.Result {
+        val inner = args.joinToString(" ")
+        val cmd = TERMUX_BASH + " -c '" + inner + "'"
+        return RootShell.su(cmd)
+    }
+
     fun apply(heroId: Int, skinId: Int): ApplyResult {
-        val cmd = "PATH=/data/data/com.termux/files/usr/bin:\$PATH $PYTHON $SCRIPT apply $heroId $skinId"
-        val r = RootShell.su(cmd)
+        val r = runTermux(listOf(PYTHON, SCRIPT, "apply", heroId.toString(), skinId.toString()))
         val log = buildString {
             append("exit=").append(r.exit).append('\n')
             if (r.stdout.isNotBlank()) append(r.stdout)
@@ -20,8 +26,7 @@ object Patcher {
     }
 
     fun revert(): ApplyResult {
-        val cmd = "PATH=/data/data/com.termux/files/usr/bin:\$PATH $PYTHON $SCRIPT revert"
-        val r = RootShell.su(cmd)
+        val r = runTermux(listOf(PYTHON, SCRIPT, "revert"))
         return ApplyResult(r.exit == 0, r.stdout + r.stderr)
     }
 
@@ -36,7 +41,7 @@ object Patcher {
             val h = parts[0].toIntOrNull() ?: return null
             val s = parts[1].toIntOrNull() ?: return null
             h to s
-        } catch (t: Throwable) {
+        } catch (_: Throwable) {
             null
         }
     }

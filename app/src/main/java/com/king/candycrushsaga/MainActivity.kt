@@ -1,7 +1,14 @@
 package com.king.candycrushsaga
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -12,17 +19,22 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var rv: RecyclerView
     private lateinit var status: TextView
+    private lateinit var searchBox: EditText
+    private lateinit var sortSpinner: Spinner
 
-    private var heroes: List<HeroData> = emptyList()
+    private var allHeroes: List<HeroData> = emptyList()
     private var allPacks: List<SkinPack> = emptyList()
     private var packCounts: MutableMap<Int, Int> = mutableMapOf()
     private var hasRoot = false
-    private lateinit var adapter: HeroAdapter
+    private var adapter: HeroAdapter? = null
+
+    private val sortOptions = listOf("A to Z", "Z to A", "Skin count high to low", "Skin count low to high")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,10 +43,10 @@ class MainActivity : AppCompatActivity() {
         val root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setBackgroundColor(0xFF0A0A0F.toInt())
-            setPadding(24, 48, 24, 24)
+            setPadding(24, 48, 24, 12)
         }
         val title = TextView(this).apply {
-            text = "Иeon1ce"
+            text = "Neon1ce"
             textSize = 30f
             setTextColor(0xFF00E5FF.toInt())
         }
@@ -44,18 +56,45 @@ class MainActivity : AppCompatActivity() {
             setTextColor(0xFF8A8AA0.toInt())
         }
         status = TextView(this).apply {
-            text = if (hasRoot) "root OK — loading..." else "root missing"
+            text = if (hasRoot) "root OK, loading" else "root missing"
             textSize = 11f
             setTextColor(0xFF8A8AA0.toInt())
-            setPadding(0, 6, 0, 12)
+            setPadding(0, 6, 0, 8)
+        }
+        searchBox = EditText(this).apply {
+            hint = "search hero"
+            setHintTextColor(0xFF5A5A70.toInt())
+            setTextColor(0xFFE8E8F0.toInt())
+            textSize = 14f
+            setPadding(16, 12, 16, 12)
+            setBackgroundColor(0xFF15151F.toInt())
+        }
+        sortSpinner = Spinner(this).apply {
+            adapter = ArrayAdapter(this@MainActivity,
+                android.R.layout.simple_spinner_dropdown_item, sortOptions)
         }
         rv = RecyclerView(this).apply { layoutManager = LinearLayoutManager(this@MainActivity) }
+
         root.addView(title)
         root.addView(subtitle)
         root.addView(status)
+        root.addView(searchBox, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT))
+        root.addView(sortSpinner, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT))
         root.addView(rv, LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f))
         setContentView(root)
+
+        searchBox.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) { applyFilter() }
+            override fun beforeTextChanged(s: CharSequence?, st: Int, c: Int, a: Int) {}
+            override fun onTextChanged(s: CharSequence?, st: Int, b: Int, c: Int) {}
+        })
+        sortSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, v: android.view.View?, pos: Int, id: Long) { applyFilter() }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
 
         lifecycleScope.launch { loadAll() }
     }
@@ -67,12 +106,27 @@ class MainActivity : AppCompatActivity() {
             val pp = Catalog.scanPacks().filter { it.hasFiles }
             hh to pp
         }
-        heroes = hs
+        allHeroes = hs
         allPacks = packs
         packCounts = packs.groupBy { it.heroId }.mapValues { it.value.size }.toMutableMap()
-        status.text = "${heroes.size} heroes · ${packs.size} packs · " +
-                if (hasRoot) "root OK" else "root missing"
-        adapter = HeroAdapter(heroes, packCounts) { showHero(it) }
+        status.text = allHeroes.size.toString() + " heroes, " + packs.size.toString() + " packs, " +
+                (if (hasRoot) "root OK" else "root missing")
+        applyFilter()
+    }
+
+    private fun applyFilter() {
+        val q = searchBox.text.toString().trim().lowercase()
+        var list = if (q.isEmpty()) allHeroes else allHeroes.filter {
+            it.name.lowercase().contains(q)
+        }
+        list = when (sortSpinner.selectedItemPosition) {
+            0 -> list.sortedBy { it.name.lowercase() }
+            1 -> list.sortedByDescending { it.name.lowercase() }
+            2 -> list.sortedByDescending { it.skins.size }
+            3 -> list.sortedBy { it.skins.size }
+            else -> list
+        }
+        adapter = HeroAdapter(list, packCounts) { showHero(it) }
         rv.adapter = adapter
     }
 
@@ -80,7 +134,7 @@ class MainActivity : AppCompatActivity() {
         val heroPacks = allPacks.filter { it.heroId == hero.heroId }
         val packsBySlot = mutableMapOf<Int, SkinPack>()
         for (p in heroPacks) {
-            val slot = extractSlotNumber(p.skinId) ?: continue
+            val slot = extractSlotNumber(p) ?: continue
             packsBySlot[slot] = p
         }
         val current = Patcher.currentState()
@@ -90,31 +144,38 @@ class MainActivity : AppCompatActivity() {
             SkinRow(entry, pack, active)
         }
 
-        val list = RecyclerView(this).apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
-        }
+        val list = RecyclerView(this).apply { layoutManager = LinearLayoutManager(this@MainActivity) }
         list.adapter = SkinAdapter(rows,
             onInject = { p -> runPatch(p.heroId, p.skinId) },
             onRemove = { p -> runRevert() })
 
         AlertDialog.Builder(this)
-            .setTitle("${hero.name} — ${hero.skins.size} skins")
+            .setTitle(hero.name + ", " + hero.skins.size.toString() + " skins")
             .setView(list)
             .setNegativeButton("Close", null)
             .show()
     }
 
-    private fun extractSlotNumber(skinId: Int): Int? {
-        if (skinId >= 100000) return skinId % 100
-        if (skinId >= 1000) return skinId % 100
-        return skinId
+    private fun extractSlotNumber(pack: SkinPack): Int? {
+        val h = File(pack.dir, "files/Art/android/h")
+        if (!h.isDirectory) return null
+        h.listFiles()?.forEach { f ->
+            val m = Regex("hero_[a-zA-Z0-9]+_skin(\\d+)_add").find(f.name)
+            if (m != null) return m.groupValues[1].toIntOrNull()
+        }
+        h.listFiles()?.forEach { f ->
+            if (Regex("hero_[a-zA-Z0-9]+_skin\\.unity3d").matches(f.name)) return 0
+        }
+        val id = pack.skinId
+        if (id >= 100000) return id % 100
+        return null
     }
 
     private fun runPatch(heroId: Int, skinId: Int) {
-        status.text = "injecting $heroId/$skinId..."
+        status.text = "injecting " + heroId + "/" + skinId
         lifecycleScope.launch {
             val r = withContext(Dispatchers.IO) { Patcher.apply(heroId, skinId) }
-            status.text = if (r.ok) "injected $heroId/$skinId" else "inject failed"
+            status.text = if (r.ok) "injected " + heroId + "/" + skinId else "inject failed"
             Toast.makeText(this@MainActivity,
                 if (r.ok) "Injected" else "Failed", Toast.LENGTH_LONG).show()
             showLog("Inject log", r.log)
@@ -122,7 +183,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun runRevert() {
-        status.text = "removing..."
+        status.text = "removing"
         lifecycleScope.launch {
             val r = withContext(Dispatchers.IO) { Patcher.revert() }
             status.text = if (r.ok) "removed" else "remove failed"
