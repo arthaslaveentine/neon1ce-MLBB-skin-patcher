@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_dark">#0A0A0F</color>
+    <color name="bg_card">#15151F</color>
+    <color name="neon_accent">#00E5FF</color>
+    <color name="neon_secondary">#FF2E88</color>
+    <color name="text_primary">#E8E8F0</color>
+    <color name="text_secondary">#8A8AA0</color>
+</resources>

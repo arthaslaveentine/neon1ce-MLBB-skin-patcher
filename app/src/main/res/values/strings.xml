@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Иeon1ce</string>
+    <string name="subtitle">MLBB Skin Patcher</string>
+    <string name="apply">Apply</string>
+    <string name="revert">Revert</string>
+    <string name="installed">Installed</string>
+    <string name="available">Available</string>
+</resources>

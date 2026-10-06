@@ -1,0 +1,986 @@
+[
+  {
+    "index": 1,
+    "base_skin": 1011,
+    "flag": 1,
+    "name": "Miya"
+  },
+  {
+    "index": 2,
+    "base_skin": 1021,
+    "flag": 1,
+    "name": "Balmond"
+  },
+  {
+    "index": 3,
+    "base_skin": 1031,
+    "flag": 1,
+    "name": "Saber"
+  },
+  {
+    "index": 4,
+    "base_skin": 1041,
+    "flag": 1,
+    "name": "Alice"
+  },
+  {
+    "index": 5,
+    "base_skin": 1051,
+    "flag": 1,
+    "name": "Nana"
+  },
+  {
+    "index": 6,
+    "base_skin": 1061,
+    "flag": 1,
+    "name": "Tigreal"
+  },
+  {
+    "index": 7,
+    "base_skin": 1071,
+    "flag": 1,
+    "name": "Alucard"
+  },
+  {
+    "index": 8,
+    "base_skin": 1081,
+    "flag": 1,
+    "name": "Karina"
+  },
+  {
+    "index": 9,
+    "base_skin": 1091,
+    "flag": 1,
+    "name": "Akai"
+  },
+  {
+    "index": 10,
+    "base_skin": 1101,
+    "flag": 1,
+    "name": "Franco"
+  },
+  {
+    "index": 11,
+    "base_skin": 1111,
+    "flag": 1,
+    "name": "Bane"
+  },
+  {
+    "index": 12,
+    "base_skin": 1121,
+    "flag": 1,
+    "name": "Bruno"
+  },
+  {
+    "index": 13,
+    "base_skin": 1131,
+    "flag": 1,
+    "name": "Clint"
+  },
+  {
+    "index": 14,
+    "base_skin": 1141,
+    "flag": 1,
+    "name": "Rafaela"
+  },
+  {
+    "index": 15,
+    "base_skin": 1151,
+    "flag": 1,
+    "name": "Eudora"
+  },
+  {
+    "index": 16,
+    "base_skin": 1161,
+    "flag": 1,
+    "name": "Zilong"
+  },
+  {
+    "index": 17,
+    "base_skin": 1171,
+    "flag": 1,
+    "name": "Fanny"
+  },
+  {
+    "index": 18,
+    "base_skin": 1181,
+    "flag": 1,
+    "name": "Layla"
+  },
+  {
+    "index": 19,
+    "base_skin": 1191,
+    "flag": 1,
+    "name": "Minotaur"
+  },
+  {
+    "index": 20,
+    "base_skin": 1201,
+    "flag": 1,
+    "name": "Lolita"
+  },
+  {
+    "index": 21,
+    "base_skin": 1211,
+    "flag": 1,
+    "name": "Hayabusa"
+  },
+  {
+    "index": 22,
+    "base_skin": 1221,
+    "flag": 1,
+    "name": "Freya"
+  },
+  {
+    "index": 23,
+    "base_skin": 1231,
+    "flag": 1,
+    "name": "Gord"
+  },
+  {
+    "index": 24,
+    "base_skin": 1241,
+    "flag": 1,
+    "name": "Natalia"
+  },
+  {
+    "index": 25,
+    "base_skin": 1251,
+    "flag": 1,
+    "name": "Kagura"
+  },
+  {
+    "index": 26,
+    "base_skin": 1261,
+    "flag": 1,
+    "name": "Chou"
+  },
+  {
+    "index": 27,
+    "base_skin": 1271,
+    "flag": 1,
+    "name": "Sun"
+  },
+  {
+    "index": 28,
+    "base_skin": 1281,
+    "flag": 1,
+    "name": "Alpha"
+  },
+  {
+    "index": 29,
+    "base_skin": 1291,
+    "flag": 1,
+    "name": "Ruby"
+  },
+  {
+    "index": 30,
+    "base_skin": 1301,
+    "flag": 1,
+    "name": "Yi Sun-shin"
+  },
+  {
+    "index": 31,
+    "base_skin": 1311,
+    "flag": 1,
+    "name": "Moskov"
+  },
+  {
+    "index": 32,
+    "base_skin": 1321,
+    "flag": 1,
+    "name": "Johnson"
+  },
+  {
+    "index": 33,
+    "base_skin": 1331,
+    "flag": 1,
+    "name": "Cyclops"
+  },
+  {
+    "index": 34,
+    "base_skin": 1341,
+    "flag": 1,
+    "name": "Estes"
+  },
+  {
+    "index": 35,
+    "base_skin": 1351,
+    "flag": 1,
+    "name": "Hilda"
+  },
+  {
+    "index": 36,
+    "base_skin": 1361,
+    "flag": 1,
+    "name": "Aurora"
+  },
+  {
+    "index": 37,
+    "base_skin": 1371,
+    "flag": 1,
+    "name": "Lapu-Lapu"
+  },
+  {
+    "index": 38,
+    "base_skin": 1381,
+    "flag": 1,
+    "name": "Vexana"
+  },
+  {
+    "index": 39,
+    "base_skin": 1391,
+    "flag": 1,
+    "name": "Roger"
+  },
+  {
+    "index": 40,
+    "base_skin": 1401,
+    "flag": 1,
+    "name": "Karrie"
+  },
+  {
+    "index": 41,
+    "base_skin": 1411,
+    "flag": 1,
+    "name": "Gatotkaca"
+  },
+  {
+    "index": 42,
+    "base_skin": 1421,
+    "flag": 1,
+    "name": "Harley"
+  },
+  {
+    "index": 43,
+    "base_skin": 1431,
+    "flag": 1,
+    "name": "Irithel"
+  },
+  {
+    "index": 44,
+    "base_skin": 1441,
+    "flag": 1,
+    "name": "Grock"
+  },
+  {
+    "index": 45,
+    "base_skin": 1451,
+    "flag": 1,
+    "name": "Argus"
+  },
+  {
+    "index": 46,
+    "base_skin": 1461,
+    "flag": 1,
+    "name": "Odette"
+  },
+  {
+    "index": 47,
+    "base_skin": 1471,
+    "flag": 1,
+    "name": "Lancelot"
+  },
+  {
+    "index": 48,
+    "base_skin": 1481,
+    "flag": 1,
+    "name": "Diggie"
+  },
+  {
+    "index": 49,
+    "base_skin": 1491,
+    "flag": 1,
+    "name": "Hylos"
+  },
+  {
+    "index": 50,
+    "base_skin": 1501,
+    "flag": 1,
+    "name": "Zhask"
+  },
+  {
+    "index": 51,
+    "base_skin": 1511,
+    "flag": 1,
+    "name": "Helcurt"
+  },
+  {
+    "index": 52,
+    "base_skin": 1521,
+    "flag": 1,
+    "name": "Pharsa"
+  },
+  {
+    "index": 53,
+    "base_skin": 1531,
+    "flag": 1,
+    "name": "Lesley"
+  },
+  {
+    "index": 54,
+    "base_skin": 1541,
+    "flag": 1,
+    "name": "Jawhead"
+  },
+  {
+    "index": 55,
+    "base_skin": 1551,
+    "flag": 1,
+    "name": "Angela"
+  },
+  {
+    "index": 56,
+    "base_skin": 1561,
+    "flag": 1,
+    "name": "Gusion"
+  },
+  {
+    "index": 57,
+    "base_skin": 1571,
+    "flag": 1,
+    "name": "Valir"
+  },
+  {
+    "index": 58,
+    "base_skin": 1581,
+    "flag": 1,
+    "name": "Martis"
+  },
+  {
+    "index": 59,
+    "base_skin": 1591,
+    "flag": 1,
+    "name": "Uranus"
+  },
+  {
+    "index": 60,
+    "base_skin": 1601,
+    "flag": 1,
+    "name": "Hanabi"
+  },
+  {
+    "index": 61,
+    "base_skin": 1611,
+    "flag": 1,
+    "name": "Chang'e"
+  },
+  {
+    "index": 62,
+    "base_skin": 1621,
+    "flag": 1,
+    "name": "Kaja"
+  },
+  {
+    "index": 63,
+    "base_skin": 1631,
+    "flag": 1,
+    "name": "Selena"
+  },
+  {
+    "index": 64,
+    "base_skin": 1641,
+    "flag": 1,
+    "name": "Aldous"
+  },
+  {
+    "index": 65,
+    "base_skin": 1651,
+    "flag": 1,
+    "name": "Claude"
+  },
+  {
+    "index": 66,
+    "base_skin": 1661,
+    "flag": 1,
+    "name": "Vale"
+  },
+  {
+    "index": 67,
+    "base_skin": 1671,
+    "flag": 1,
+    "name": "Leomord"
+  },
+  {
+    "index": 68,
+    "base_skin": 1681,
+    "flag": 1,
+    "name": "Lunox"
+  },
+  {
+    "index": 69,
+    "base_skin": 1691,
+    "flag": 1,
+    "name": "Hanzo"
+  },
+  {
+    "index": 70,
+    "base_skin": 1701,
+    "flag": 1,
+    "name": "Belerick"
+  },
+  {
+    "index": 71,
+    "base_skin": 1711,
+    "flag": 1,
+    "name": "Kimmy"
+  },
+  {
+    "index": 72,
+    "base_skin": 1721,
+    "flag": 1,
+    "name": "Thamuz"
+  },
+  {
+    "index": 73,
+    "base_skin": 1731,
+    "flag": 1,
+    "name": "Harith"
+  },
+  {
+    "index": 74,
+    "base_skin": 1741,
+    "flag": 1,
+    "name": "Minsitthar"
+  },
+  {
+    "index": 75,
+    "base_skin": 1751,
+    "flag": 1,
+    "name": "Kadita"
+  },
+  {
+    "index": 76,
+    "base_skin": 1761,
+    "flag": 1,
+    "name": "Faramis"
+  },
+  {
+    "index": 77,
+    "base_skin": 1771,
+    "flag": 1,
+    "name": "Badang"
+  },
+  {
+    "index": 78,
+    "base_skin": 1781,
+    "flag": 1,
+    "name": "Khufra"
+  },
+  {
+    "index": 79,
+    "base_skin": 1791,
+    "flag": 1,
+    "name": "Granger"
+  },
+  {
+    "index": 80,
+    "base_skin": 1801,
+    "flag": 1,
+    "name": "Guinevere"
+  },
+  {
+    "index": 81,
+    "base_skin": 1811,
+    "flag": 1,
+    "name": "Esmeralda"
+  },
+  {
+    "index": 82,
+    "base_skin": 1821,
+    "flag": 1,
+    "name": "Terizla"
+  },
+  {
+    "index": 83,
+    "base_skin": 1831,
+    "flag": 1,
+    "name": "X.Borg"
+  },
+  {
+    "index": 84,
+    "base_skin": 1841,
+    "flag": 1,
+    "name": "Ling"
+  },
+  {
+    "index": 85,
+    "base_skin": 1851,
+    "flag": 1,
+    "name": "Dyrroth"
+  },
+  {
+    "index": 86,
+    "base_skin": 1861,
+    "flag": 1,
+    "name": "Lylia"
+  },
+  {
+    "index": 87,
+    "base_skin": 1871,
+    "flag": 1,
+    "name": "Baxia"
+  },
+  {
+    "index": 88,
+    "base_skin": 1881,
+    "flag": 1,
+    "name": "Masha"
+  },
+  {
+    "index": 89,
+    "base_skin": 1891,
+    "flag": 1,
+    "name": "Wanwan"
+  },
+  {
+    "index": 90,
+    "base_skin": 1901,
+    "flag": 1,
+    "name": "Silvanna"
+  },
+  {
+    "index": 91,
+    "base_skin": 1911,
+    "flag": 1,
+    "name": "Cecilion"
+  },
+  {
+    "index": 92,
+    "base_skin": 1921,
+    "flag": 1,
+    "name": "Carmilla"
+  },
+  {
+    "index": 93,
+    "base_skin": 1931,
+    "flag": 1,
+    "name": "Atlas"
+  },
+  {
+    "index": 94,
+    "base_skin": 1941,
+    "flag": 1,
+    "name": "Popol and Kupa"
+  },
+  {
+    "index": 95,
+    "base_skin": 1951,
+    "flag": 1,
+    "name": "Yu Zhong"
+  },
+  {
+    "index": 96,
+    "base_skin": 1961,
+    "flag": 1,
+    "name": "Luo Yi"
+  },
+  {
+    "index": 97,
+    "base_skin": 1971,
+    "flag": 1,
+    "name": "Benedetta"
+  },
+  {
+    "index": 98,
+    "base_skin": 1981,
+    "flag": 1,
+    "name": "Khaleed"
+  },
+  {
+    "index": 99,
+    "base_skin": 1991,
+    "flag": 1,
+    "name": "Barats"
+  },
+  {
+    "index": 100,
+    "base_skin": 2001,
+    "flag": 1,
+    "name": "Brody"
+  },
+  {
+    "index": 101,
+    "base_skin": 2011,
+    "flag": 1,
+    "name": "Yve"
+  },
+  {
+    "index": 102,
+    "base_skin": 2021,
+    "flag": 1,
+    "name": "Mathilda"
+  },
+  {
+    "index": 103,
+    "base_skin": 2031,
+    "flag": 1,
+    "name": "Paquito"
+  },
+  {
+    "index": 104,
+    "base_skin": 2041,
+    "flag": 1,
+    "name": "Gloo"
+  },
+  {
+    "index": 105,
+    "base_skin": 2051,
+    "flag": 1,
+    "name": "Beatrix"
+  },
+  {
+    "index": 106,
+    "base_skin": 2061,
+    "flag": 1,
+    "name": "Phoveus"
+  },
+  {
+    "index": 107,
+    "base_skin": 2071,
+    "flag": 1,
+    "name": "Natan"
+  },
+  {
+    "index": 108,
+    "base_skin": 2081,
+    "flag": 1,
+    "name": "Aulus"
+  },
+  {
+    "index": 109,
+    "base_skin": 2091,
+    "flag": 1,
+    "name": "Aamon"
+  },
+  {
+    "index": 110,
+    "base_skin": 2101,
+    "flag": 1,
+    "name": "Valentina"
+  },
+  {
+    "index": 111,
+    "base_skin": 2111,
+    "flag": 1,
+    "name": "Edith"
+  },
+  {
+    "index": 112,
+    "base_skin": 2121,
+    "flag": 1,
+    "name": "Floryn"
+  },
+  {
+    "index": 113,
+    "base_skin": 2131,
+    "flag": 1,
+    "name": "Yin"
+  },
+  {
+    "index": 114,
+    "base_skin": 2141,
+    "flag": 1,
+    "name": "Melissa"
+  },
+  {
+    "index": 115,
+    "base_skin": 2151,
+    "flag": 1,
+    "name": "Xavier"
+  },
+  {
+    "index": 116,
+    "base_skin": 2161,
+    "flag": 1,
+    "name": "Julian"
+  },
+  {
+    "index": 117,
+    "base_skin": 2171,
+    "flag": 1,
+    "name": "Fredrinn"
+  },
+  {
+    "index": 118,
+    "base_skin": 2181,
+    "flag": 1,
+    "name": "Joy"
+  },
+  {
+    "index": 119,
+    "base_skin": 2191,
+    "flag": 1,
+    "name": "Novaria"
+  },
+  {
+    "index": 120,
+    "base_skin": 2201,
+    "flag": 1,
+    "name": "Arlott"
+  },
+  {
+    "index": 121,
+    "base_skin": 2211,
+    "flag": 1,
+    "name": "Ixia"
+  },
+  {
+    "index": 122,
+    "base_skin": 2221,
+    "flag": 1,
+    "name": "Nolan"
+  },
+  {
+    "index": 123,
+    "base_skin": 2231,
+    "flag": 1,
+    "name": "Cici"
+  },
+  {
+    "index": 124,
+    "base_skin": 2241,
+    "flag": 1,
+    "name": "Chip"
+  },
+  {
+    "index": 125,
+    "base_skin": 2251,
+    "flag": 1,
+    "name": "Zhuxin"
+  },
+  {
+    "index": 126,
+    "base_skin": 2261,
+    "flag": 1,
+    "name": "Suyou"
+  },
+  {
+    "index": 127,
+    "base_skin": 2271,
+    "flag": 1,
+    "name": "Lukas"
+  },
+  {
+    "index": 128,
+    "base_skin": 2281,
+    "flag": 1,
+    "name": "Kalea"
+  },
+  {
+    "index": 129,
+    "base_skin": 2291,
+    "flag": 1,
+    "name": "Zetian"
+  },
+  {
+    "index": 130,
+    "base_skin": 2301,
+    "flag": 1,
+    "name": "Obsidia"
+  },
+  {
+    "index": 131,
+    "base_skin": 2311,
+    "flag": 1,
+    "name": "Sora"
+  },
+  {
+    "index": 132,
+    "base_skin": 2321,
+    "flag": 1,
+    "name": "Marcel"
+  },
+  {
+    "index": 133,
+    "base_skin": 2331,
+    "flag": 1,
+    "name": "Hirara"
+  },
+  {
+    "index": 134,
+    "base_skin": 2341,
+    "flag": 1,
+    "name": "Dori"
+  },
+  {
+    "index": 135,
+    "base_skin": 2351,
+    "flag": 1,
+    "name": "Reserved String"
+  },
+  {
+    "index": 136,
+    "base_skin": 1681,
+    "flag": 1,
+    "name": "Reserved String"
+  },
+  {
+    "index": 294,
+    "base_skin": 3941,
+    "flag": 1,
+    "name": "Classic Zilong"
+  },
+  {
+    "index": 295,
+    "base_skin": 3951,
+    "flag": 1,
+    "name": "Classic Yi Sun-shin"
+  },
+  {
+    "index": 296,
+    "base_skin": 3961,
+    "flag": 1,
+    "name": "Classic Vexana"
+  },
+  {
+    "index": 297,
+    "base_skin": 3971,
+    "flag": 1,
+    "name": "Classic Akai"
+  },
+  {
+    "index": 298,
+    "base_skin": 3981,
+    "flag": 1,
+    "name": "Classic Chou"
+  },
+  {
+    "index": 4004,
+    "base_skin": 14004,
+    "flag": 1,
+    "name": "Revamped Alice"
+  },
+  {
+    "index": 4012,
+    "base_skin": 14012,
+    "flag": 1,
+    "name": "Revamped Bruno"
+  },
+  {
+    "index": 4014,
+    "base_skin": 14014,
+    "flag": 1,
+    "name": "Revamped Rafaela"
+  },
+  {
+    "index": 4018,
+    "base_skin": 14018,
+    "flag": 1,
+    "name": "Revamped Layla"
+  },
+  {
+    "index": 4022,
+    "base_skin": 1221,
+    "flag": 1,
+    "name": "Revamped Freya"
+  },
+  {
+    "index": 4024,
+    "base_skin": 14024,
+    "flag": 1,
+    "name": "Revamped Natalia"
+  },
+  {
+    "index": 4026,
+    "base_skin": 14027,
+    "flag": 1,
+    "name": "Revamped Chou"
+  },
+  {
+    "index": 4043,
+    "base_skin": 14043,
+    "flag": 1,
+    "name": "Revamped Irithel"
+  },
+  {
+    "index": 4044,
+    "base_skin": 14044,
+    "flag": 1,
+    "name": "Revamped Grock"
+  },
+  {
+    "index": 4050,
+    "base_skin": 1501,
+    "flag": 1,
+    "name": "Revamped Zhask"
+  },
+  {
+    "index": 4061,
+    "base_skin": 14061,
+    "flag": 1,
+    "name": "Revamped Chang'e"
+  },
+  {
+    "index": 4062,
+    "base_skin": 14062,
+    "flag": 1,
+    "name": "Revamped Kaja"
+  },
+  {
+    "index": 4072,
+    "base_skin": 14072,
+    "flag": 1,
+    "name": "Revamped Thamuz"
+  },
+  {
+    "index": 4075,
+    "base_skin": 14075,
+    "flag": 1,
+    "name": "Revamped Kadita"
+  },
+  {
+    "index": 4077,
+    "base_skin": 14077,
+    "flag": 1,
+    "name": "Revamped Badang"
+  },
+  {
+    "index": 4079,
+    "base_skin": 1791,
+    "flag": 1,
+    "name": "Revamped Granger"
+  },
+  {
+    "index": 4085,
+    "base_skin": 14085,
+    "flag": 1,
+    "name": "Dyrroth"
+  },
+  {
+    "index": 4087,
+    "base_skin": 14087,
+    "flag": 1,
+    "name": "Revamped Baxia"
+  },
+  {
+    "index": 4088,
+    "base_skin": 14088,
+    "flag": 1,
+    "name": "Revamped Masha"
+  },
+  {
+    "index": 4094,
+    "base_skin": 14094,
+    "flag": 1,
+    "name": "Revamped Popol and Kupa"
+  },
+  {
+    "index": 4096,
+    "base_skin": 1961,
+    "flag": 1,
+    "name": "Revamped Luo Yi"
+  },
+  {
+    "index": 4100,
+    "base_skin": 12001,
+    "flag": 1,
+    "name": "Revamped Brody"
+  },
+  {
+    "index": 4104,
+    "base_skin": 14104,
+    "flag": 1,
+    "name": "Revamped Gloo"
+  }
+]
