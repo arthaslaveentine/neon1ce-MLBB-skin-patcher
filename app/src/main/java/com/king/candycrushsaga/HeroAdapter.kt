@@ -7,9 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class HeroAdapter(
-    private val heroes: List<HeroSkin>,
+    private val heroes: List<HeroData>,
     private val packCounts: Map<Int, Int>,
-    private val onClick: (HeroSkin) -> Unit,
+    private val onClick: (HeroData) -> Unit,
 ) : RecyclerView.Adapter<HeroAdapter.VH>() {
 
     class VH(v: LinearLayout) : RecyclerView.ViewHolder(v) {
@@ -44,7 +44,7 @@ class HeroAdapter(
         val h = heroes[position]
         holder.name.text = h.name
         val installed = packCounts[h.heroId] ?: 0
-        val total = h.slotCount
+        val total = h.skins.size
         val installedStr = if (installed > 0) "$installed installed" else "none installed"
         holder.sub.text = "$total skins · $installedStr"
         holder.sub.setTextColor(if (installed > 0) 0xFF00E5FF.toInt() else 0xFF8A8AA0.toInt())

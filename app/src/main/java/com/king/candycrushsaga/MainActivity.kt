@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var rv: RecyclerView
     private lateinit var status: TextView
 
-    private var heroes: List<HeroSkin> = emptyList()
+    private var heroes: List<HeroData> = emptyList()
     private var allPacks: List<SkinPack> = emptyList()
     private var packCounts: MutableMap<Int, Int> = mutableMapOf()
     private var hasRoot = false
@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         hasRoot = RootShell.hasRoot()
 
         val root = LinearLayout(this).apply {
@@ -50,9 +49,7 @@ class MainActivity : AppCompatActivity() {
             setTextColor(0xFF8A8AA0.toInt())
             setPadding(0, 6, 0, 12)
         }
-        rv = RecyclerView(this).apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
-        }
+        rv = RecyclerView(this).apply { layoutManager = LinearLayoutManager(this@MainActivity) }
         root.addView(title)
         root.addView(subtitle)
         root.addView(status)
@@ -66,7 +63,7 @@ class MainActivity : AppCompatActivity() {
     private suspend fun loadAll() {
         val (hs, packs) = withContext(Dispatchers.IO) {
             Catalog.ensureAssets(this@MainActivity)
-            val hh = Catalog.loadHeroSkins(this@MainActivity)
+            val hh = Catalog.loadHeroes(this@MainActivity)
             val pp = Catalog.scanPacks().filter { it.hasFiles }
             hh to pp
         }
@@ -79,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         rv.adapter = adapter
     }
 
-    private fun showHero(hero: HeroSkin) {
+    private fun showHero(hero: HeroData) {
         val heroPacks = allPacks.filter { it.heroId == hero.heroId }
         val packsBySlot = mutableMapOf<Int, SkinPack>()
         for (p in heroPacks) {
@@ -87,10 +84,10 @@ class MainActivity : AppCompatActivity() {
             packsBySlot[slot] = p
         }
         val current = Patcher.currentState()
-        val rows = hero.slots.map { slot ->
-            val pack = packsBySlot[slot]
+        val rows = hero.skins.map { entry ->
+            val pack = packsBySlot[entry.slot]
             val active = current != null && current.first == hero.heroId && current.second == pack?.skinId
-            SlotRow(slot, pack, active, inferSkinName(pack))
+            SkinRow(entry, pack, active)
         }
 
         val list = RecyclerView(this).apply {
@@ -101,36 +98,16 @@ class MainActivity : AppCompatActivity() {
             onRemove = { p -> runRevert() })
 
         AlertDialog.Builder(this)
-            .setTitle("${hero.name} — ${hero.slotCount} skins")
+            .setTitle("${hero.name} — ${hero.skins.size} skins")
             .setView(list)
             .setNegativeButton("Close", null)
             .show()
     }
 
     private fun extractSlotNumber(skinId: Int): Int? {
-        if (skinId >= 100000) {
-            val s = skinId % 100
-            if (s in 0..30) return s
-            return skinId % 10
-        }
-        return skinId % 10
-    }
-
-    /** Extract a display name from the pack's manifest filenames. */
-    private fun inferSkinName(pack: SkinPack?): String? {
-        if (pack == null) return null
-        for (line in pack.manifest) {
-            val fname = line.substringAfterLast('/').substringBeforeLast(".unity3d")
-            // pattern: hero_<pinyin>_<namevariant>_skin*_add
-            val m = Regex("hero_([a-z]+)_([a-z0-9]+)").find(fname)
-            if (m != null) {
-                val variant = m.groupValues[2]
-                if (variant != "skin" && variant.length > 2 && !variant.all { it.isDigit() }) {
-                    return variant.replaceFirstChar { it.uppercase() }
-                }
-            }
-        }
-        return null
+        if (skinId >= 100000) return skinId % 100
+        if (skinId >= 1000) return skinId % 100
+        return skinId
     }
 
     private fun runPatch(heroId: Int, skinId: Int) {
