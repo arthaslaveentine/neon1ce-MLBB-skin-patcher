@@ -3,20 +3,13 @@ package com.king.candycrushsaga
 import java.io.File
 
 object Patcher {
-    private const val TERMUX_BASH = "/data/data/com.termux/files/usr/bin/bash"
-    private const val PYTHON = "/data/data/com.termux/files/usr/bin/python3"
-    private const val SCRIPT = "/data/data/com.termux/files/home/nyaf/nyaf_skin_patcher.py"
+    private const val WRAPPER = "/data/local/tmp/nyaf_run.sh"
 
     data class ApplyResult(val ok: Boolean, val log: String)
 
-    private fun runTermux(args: List<String>): RootShell.Result {
-        val inner = args.joinToString(" ")
-        val cmd = TERMUX_BASH + " -c '" + inner + "'"
-        return RootShell.su(cmd)
-    }
-
     fun apply(heroId: Int, skinId: Int): ApplyResult {
-        val r = runTermux(listOf(PYTHON, SCRIPT, "apply", heroId.toString(), skinId.toString()))
+        val cmd = "$WRAPPER apply $heroId $skinId"
+        val r = RootShell.su(cmd)
         val log = buildString {
             append("exit=").append(r.exit).append('\n')
             if (r.stdout.isNotBlank()) append(r.stdout)
@@ -26,7 +19,7 @@ object Patcher {
     }
 
     fun revert(): ApplyResult {
-        val r = runTermux(listOf(PYTHON, SCRIPT, "revert"))
+        val r = RootShell.su("$WRAPPER revert")
         return ApplyResult(r.exit == 0, r.stdout + r.stderr)
     }
 

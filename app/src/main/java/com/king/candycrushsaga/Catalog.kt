@@ -54,9 +54,13 @@ object Catalog {
             val skins = ArrayList<SkinEntry>(skinArr.length())
             for (j in 0 until skinArr.length()) {
                 val s = skinArr.getJSONObject(j)
+                val slot = s.optInt("slot", 0)
+                if (slot >= 30) continue
+                val nm = s.optString("name", null)?.takeIf { it != "null" && it.isNotBlank() }
+                if (nm != null && nm.contains("Reserved", ignoreCase = true)) continue
                 skins.add(SkinEntry(
-                    slot = s.optInt("slot", 0),
-                    name = s.optString("name", null)?.takeIf { it != "null" && it.isNotBlank() },
+                    slot = slot,
+                    name = nm,
                     tier = s.optString("tier", null)?.takeIf { it != "null" && it.isNotBlank() },
                     tierColor = s.optString("tier_color", null)?.takeIf { it != "null" && it.isNotBlank() },
                     availability = s.optString("availability", null)?.takeIf { it != "null" && it.isNotBlank() },
