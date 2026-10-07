@@ -199,17 +199,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun bootstrapWrapper() {
         try {
-            val sh = "cat > /data/local/tmp/nyaf_run.sh << 'WRAPEOF'\n" +
-                "#!/data/data/com.termux/files/usr/bin/bash\n" +
+            val script = "#!/data/data/com.termux/files/usr/bin/bash\n" +
                 "export HOME=/data/data/com.termux/files/home\n" +
                 "export PREFIX=/data/data/com.termux/files/usr\n" +
                 "export LD_LIBRARY_PATH=/data/data/com.termux/files/usr/lib\n" +
                 "export TMPDIR=/data/data/com.termux/files/usr/tmp\n" +
                 "export LANG=en_US.UTF-8\n" +
-                "exec /data/data/com.termux/files/usr/bin/python3 /data/data/com.termux/files/home/nyaf/nyaf_skin_patcher.py \"\$@\"\n" +
-                "WRAPEOF\n" +
-                "chmod 755 /data/local/tmp/nyaf_run.sh"
-            RootShell.su(sh)
+                "exec /data/data/com.termux/files/usr/bin/python3 /data/data/com.termux/files/home/nyaf/nyaf_skin_patcher.py \"\$@\"\n"
+            val b64 = android.util.Base64.encodeToString(script.toByteArray(), android.util.Base64.NO_WRAP)
+            val cmd = "echo '" + b64 + "' | base64 -d > /data/local/tmp/nyaf_run.sh && chmod 755 /data/local/tmp/nyaf_run.sh"
+            RootShell.su(cmd)
         } catch (_: Throwable) {}
     }
 }
