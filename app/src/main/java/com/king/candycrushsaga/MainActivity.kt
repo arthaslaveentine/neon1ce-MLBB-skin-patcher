@@ -159,17 +159,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun extractSlotNumber(pack: SkinPack): Int? {
         val h = File(pack.dir, "files/Art/android/h")
-        if (!h.isDirectory) return null
-        h.listFiles()?.forEach { f ->
-            val m = Regex("hero_[a-zA-Z0-9]+_skin(\\d+)_add").find(f.name)
-            if (m != null) return m.groupValues[1].toIntOrNull()
+        if (h.isDirectory) {
+            h.listFiles()?.forEach { f ->
+                val m = Regex("hero_[a-zA-Z0-9]+_skin(\\d+)_add").find(f.name)
+                if (m != null) return m.groupValues[1].toIntOrNull()
+            }
         }
-        h.listFiles()?.forEach { f ->
-            if (Regex("hero_[a-zA-Z0-9]+_skin\\.unity3d").matches(f.name)) return 0
+        if (pack.version.startsWith("auto-official") && pack.skinId in 1000..9999) {
+            val last2 = pack.skinId % 100
+            if (last2 >= 11 && last2 < 41) return last2 - 11
         }
-        val id = pack.skinId
-        if (id >= 100000) return id % 100
-        return null
+        return 0
     }
 
     private fun runPatch(heroId: Int, skinId: Int) {
