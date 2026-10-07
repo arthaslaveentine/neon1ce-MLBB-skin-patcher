@@ -1,28 +1,30 @@
 package com.king.candycrushsaga
 
-import java.io.DataOutputStream
+import java.io.File
 
 object RootShell {
     data class Result(val exit: Int, val stdout: String, val stderr: String)
 
-    fun run(vararg cmd: String): Result {
-        return try {
-            val proc = ProcessBuilder(*cmd)
-                .redirectErrorStream(false)
-                .start()
-            val out = proc.inputStream.bufferedReader().readText()
-            val err = proc.errorStream.bufferedReader().readText()
-            val code = proc.waitFor()
-            Result(code, out, err)
-        } catch (t: Throwable) {
-            Result(-1, "", t.message ?: "unknown")
+    private val SU_PATHS = listOf(
+        "/system/bin/su",
+        "/system/xbin/su",
+        "/sbin/su",
+        "/system/sbin/su",
+        "/su/bin/su",
+        "/debug_ramdisk/su",
+    )
+
+    private fun findSu(): String {
+        for (p in SU_PATHS) {
+            if (File(p).exists()) return p
         }
+        return "su"
     }
 
-    /** Run a single command as root via `su -c`. */
     fun su(command: String): Result {
         return try {
-            val proc = Runtime.getRuntime().exec(arrayOf("su", "-c", command))
+            val suPath = findSu()
+            val proc = Runtime.getRuntime().exec(arrayOf(suPath, "-c", command))
             val out = proc.inputStream.bufferedReader().readText()
             val err = proc.errorStream.bufferedReader().readText()
             val code = proc.waitFor()

@@ -4,11 +4,12 @@ import java.io.File
 
 object Patcher {
     private const val WRAPPER = "/data/local/tmp/nyaf_run.sh"
+    private const val SH = "/system/bin/sh"
 
     data class ApplyResult(val ok: Boolean, val log: String)
 
     fun apply(heroId: Int, skinId: Int): ApplyResult {
-        val cmd = "$WRAPPER apply $heroId $skinId"
+        val cmd = "$SH $WRAPPER apply $heroId $skinId"
         val r = RootShell.su(cmd)
         val log = buildString {
             append("exit=").append(r.exit).append('\n')
@@ -19,7 +20,7 @@ object Patcher {
     }
 
     fun revert(): ApplyResult {
-        val r = RootShell.su("$WRAPPER revert")
+        val r = RootShell.su("$SH $WRAPPER revert")
         return ApplyResult(r.exit == 0, r.stdout + r.stderr)
     }
 
