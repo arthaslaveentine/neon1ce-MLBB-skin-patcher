@@ -4,7 +4,7 @@ object Patcher {
     private const val TERMUX_SERVICE = "com.termux/com.termux.app.TermuxService"
     private const val APPLY_SCRIPT = "/data/data/com.termux/files/home/.termux/tasker/nyaf_apply.sh"
     private const val REVERT_SCRIPT = "/data/data/com.termux/files/home/.termux/tasker/nyaf_revert.sh"
-    private const val LOG_PATH = "/data/local/tmp/nyaf/patcher.log"
+    private const val LOG_PATH = "/data/data/com.termux/files/home/nyaf/patcher.log"
 
     data class ApplyResult(val ok: Boolean, val log: String)
 
@@ -17,10 +17,12 @@ object Patcher {
             cmd += " --esa com.termux.execute.arguments \"$args\""
         }
         RootShell.su(cmd)
+
         var log = ""
         for (i in 0 until 15) {
             Thread.sleep(2000)
-            log = RootShell.su("/system/bin/cat $LOG_PATH 2>/dev/null").stdout
+            val r = RootShell.su("/system/bin/cat $LOG_PATH 2>/dev/null")
+            log = r.stdout.ifBlank { r.stderr }
             if (log.contains("=== exit")) break
         }
         val ok = log.contains("[done]") && !log.contains("Traceback")
